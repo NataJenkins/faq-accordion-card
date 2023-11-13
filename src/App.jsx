@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import "./App.scss";
-import Accordion from "./accordion";
+import Accordion from "./Accordion";
 import Arrow from "./assets/icon-arrow-down.svg";
 
 function App() {
