@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 -   [Solution Link](https://github.com/NataJenkins/faq-accordion-card)
--   [Live Site Link](https://your-live-site-url.com)
+-   [Live Site Link](https://teal-gecko-65152b.netlify.app)
 
 ## My process
 
