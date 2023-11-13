@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from "react";
+import "./App.scss";
+import Accordion from "./accordion";
+import Arrow from "./assets/icon-arrow-down.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const accordionContent = [
+        {
+            title: "How many team members can I invite?",
+            content: "You can invite as many members as you like!",
+        },
+        {
+            title: "What is the maximum file upload size?",
+            content:
+                "No more than 2GB. All files in your account must fit your allotted storage space.",
+        },
+        {
+            title: "How do I reset my password?",
+            content:
+                "Click on button 'Reset password' under the password input.",
+        },
+        {
+            title: "Can I cancel my subscription?",
+            content: "You can canel your subscription at any time.",
+        },
+        {
+            title: "Do you provide additional support?",
+            content:
+                "For additional support you can contact us at mail@faq.com",
+        },
+    ];
+    return (
+        <main>
+            <div className="container">
+                <div className="card">
+                    <div className="questions">
+                        <h1>FAQ</h1>
+                        <div className="acc">
+                            {accordionContent.map((item, i) => (
+                                <Accordion
+                                    key={i}
+                                    controllerElement={(isExpanded) => (
+                                        <div
+                                            className={`title ${
+                                                isExpanded ? "hide" : "show"
+                                            }`}
+                                        >
+                                            {item.title}
+                                            <img src={Arrow} alt="" />
+                                        </div>
+                                    )}
+                                >
+                                    <p>{item.content}</p>
+                                </Accordion>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
 }
 
-export default App
+export default App;

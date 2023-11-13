@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+$bp: 1000px;
+// ## Colors
+// ### Primary
+// #### Text
+$very-dark-desaturated-blue: hsl(238, 29%, 16%);
+$soft-red: hsl(14, 88%, 65%);
+// #### Gradient
+// Background gradient:
+$soft-violet: hsl(273, 75%, 66%);
+$soft-blue: hsl(240, 73%, 65%);
+// ### Neutral
+// #### Text
+$very-dark-grayish-blue: hsl(237, 12%, 33%);
+$dark-grayish-blue: hsl(240, 6%, 50%);
+// #### Dividers
+$light-grayish-blue: hsl(240, 5%, 91%);
+
+*,
+body {
+    margin: 0;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.container {
+    min-width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(180deg, $soft-violet 0%, $soft-blue 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card {
+        max-width: 925px;
+        min-height: 509px;
+        border-radius: 23px;
+        box-shadow: 0px 50px 50px -20px rgba(53, 18, 122, 0.5);
+        background: url(./assets/illustration-woman-online-desktop.svg) bottom
+                3.1rem left -5.1rem no-repeat,
+            url(./assets/bg-pattern-desktop.svg) bottom -10rem left -36rem
+                no-repeat;
+        background-color: white;
+        display: flex;
+        justify-content: flex-end;
+        padding: 65px 90px;
+        width: 80%;
+        box-sizing: border-box;
+        position: relative;
+        &::before {
+            content: "";
+            background: url(./assets/illustration-box-desktop.svg) no-repeat
+                right 3.1rem;
+            width: 140px;
+            height: 190px;
+            position: absolute;
+            left: -42px;
+            top: 165px;
+        }
+        .questions {
+            color: $very-dark-desaturated-blue;
+            width: 50%;
+
+            .title {
+                height: 50px;
+                border-bottom: 1px solid $light-grayish-blue;
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                justify-content: space-between;
+                cursor: pointer;
+                img {
+                    transition: all 0.3s ease-in;
+                }
+
+                &.hide {
+                    border-bottom: none;
+                    font-weight: 700;
+
+                    img {
+                        transform: rotate(-180deg);
+                        transition: all 0.3s ease-in;
+                    }
+                }
+                &:hover {
+                    color: $soft-red;
+                }
+            }
+            .content {
+                padding-bottom: 13px;
+                border-bottom: 1px solid $light-grayish-blue;
+                font-size: 12px;
+                color: $dark-grayish-blue;
+            }
+        }
+    }
+    @media (max-width: $bp) {
+        padding: 24px;
+        box-sizing: border-box;
+        .card {
+            width: 100%;
+            background-image: none;
+            padding: 132px 25px 25px 25px;
+
+            &::before {
+                content: "";
+                background: url(./assets/illustration-woman-online-mobile.svg)
+                    no-repeat;
+                width: 237px;
+                height: 180px;
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translate(-50%, -50%);
+            }
+            .questions {
+                width: 100%;
+                h1 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
